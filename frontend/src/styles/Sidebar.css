@@ -1,0 +1,109 @@
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #f5f5f5;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.sidebar:hover {
+  transform: translateX(0);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.user-profile span {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+}
+
+.user-profile:hover .dropdown {
+  display: block;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.friends-button {
+  margin-bottom: 20px;
+}
+
+.friends-button button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.friends-button button:hover {
+  background-color: #0056b3;
+}
+
+.note-collections {
+  margin-top: 20px;
+}
+
+.note-collections h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.note-collections ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.note-collections li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.note-collections li:hover {
+  background-color: #e0e0e0;
+}
