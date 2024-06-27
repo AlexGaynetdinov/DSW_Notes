@@ -1,16 +1,7 @@
 import React from 'react';
 import '../styles/NotesList.css';
 
-const NotesList = ({
-  collection,
-  notes,
-  editingName,
-  newName,
-  onNameChange,
-  onNameEditStart,
-  onNameEditEnd,
-  onKeyDown,
-}) => {
+const NotesList = ({ collection, notes, editingName, newName, onNameChange, onNameEditStart, onNameEditEnd, onKeyDown, onNoteSelect }) => {
   return (
     <div className="notes-list">
       {editingName ? (
@@ -30,7 +21,7 @@ const NotesList = ({
       )}
       <div className="notes-grid">
         {notes.map((note) => (
-          <div key={note._id} className="note-card">
+          <div key={note._id} className="note-card" onClick={() => onNoteSelect(note)}>
             <h3>{note.title}</h3>
             <p>{note.content}...</p>
           </div>

@@ -1,0 +1,78 @@
+.note-editor {
+  width: calc(100% - 400px); /* Account for the sidebar width */
+  margin-left: 300px; /* Align next to the sidebar */
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 15px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.note-title,
+.note-content {
+  width: 95%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.note-title {
+  font-size: 24px;
+}
+
+.note-content {
+  height: 200px;
+  resize: vertical;
+}
+
+.note-images,
+.note-lists {
+  margin-top: 20px;
+}
+
+.note-images h3,
+.note-lists h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.image-input,
+.list-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.image-input input,
+.list-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.image-input button,
+.list-input button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.image-input button:hover,
+.list-input button:hover {
+  background-color: #0056b3;
+}
+
+.note-editor-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+

@@ -55,6 +55,31 @@ router.put('/:id', getNote, async (req, res) => {
   }
 });
 
+// PUT (update) a note by ID
+router.put('/:id', authenticateToken, getNote, async (req, res) => {
+  if (req.body.title != null) {
+    res.note.title = req.body.title;
+  }
+  if (req.body.content != null) {
+    res.note.content = req.body.content;
+  }
+  if (req.body.lists != null) {
+    res.note.lists = req.body.lists;
+  }
+  if (req.body.pictures != null) {
+    res.note.pictures = req.body.pictures;
+  }
+  if (req.body.collection != null) {
+    res.note.collection = req.body.collection;
+  }
+  try {
+    const updatedNote = await res.note.save();
+    res.json(updatedNote);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 /*
 // GET all notes by author ID
 router.get('/author/:authorId', async (req, res) => {
