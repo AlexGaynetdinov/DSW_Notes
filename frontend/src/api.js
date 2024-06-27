@@ -37,4 +37,18 @@ export const getCollectionNotes = async (collectionId) => {
   return response.data;
 };
 
+export const updateCollectionName = async (collectionId, newName) => {
+  console.log(`Updating collection ${collectionId} with new name: ${newName}`);
+  try {
+    const response = await api.put(`/collections/${collectionId}`, {
+      name: newName,
+    });
+    console.log('API response:', response.data);
+    return response.data; // Optionally return data if needed
+  } catch (error) {
+    console.error('Error updating collection name:', error);
+    throw error; // Propagate error for handling in component
+  }
+};
+
 export default api;

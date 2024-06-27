@@ -1,6 +1,5 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-//import './Login.css'; // Additional styling for the Login page if needed
 
 const Login = () => {
   return (
@@ -12,7 +11,7 @@ const Login = () => {
         <LoginForm />
       </main>
       <footer className="login-footer">
-        <p>&copy; 2024 My App</p>
+        <p>&copy; 2024 L10 Notes</p>
       </footer>
     </div>
   );

@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
-import '../styles/Sidebar.css'; // Import your sidebar-specific styles
+import '../styles/Sidebar.css';
 
-const Sidebar = () => {
-  const { user, logout } = useAuth();
+const Sidebar = ({ onSelectCollection }) => { // Destructure onSelectCollection from props
+  const { user, collections, logout, fetchCollectionNotes } = useAuth();
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
+    setDropdownVisible((prevVisible) => !prevVisible);
   };
 
   const handleLogout = () => {
     logout();
   };
 
+  const handleCollectionClick = (collectionId) => {
+    fetchCollectionNotes(collectionId);
+    const selectedCollection = collections.find((c) => c._id === collectionId);
+    onSelectCollection(selectedCollection); // Call onSelectCollection with selected collection
+  };
+
   return (
     <div className="sidebar">
       <div className="user-profile">
         <div className="user-name" onClick={toggleDropdown}>
-          {user.username}
+          <h3>{user.username}'s Notes</h3>
           {dropdownVisible && (
             <div className="dropdown">
               <ul>
@@ -35,10 +41,14 @@ const Sidebar = () => {
       <div className="note-collections">
         <h3>Your collections:</h3>
         <ul>
-          {user.collections &&
-            user.collections.map((collection, index) => (
-              <li key={index}>{collection}</li>
-            ))}
+          {collections.map((collection) => (
+            <li
+              key={collection._id}
+              onClick={() => handleCollectionClick(collection._id)}
+            >
+              {collection.name}
+            </li>
+          ))}
         </ul>
       </div>
     </div>

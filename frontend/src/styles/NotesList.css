@@ -1,0 +1,41 @@
+.notes-list {
+  margin-top: 20px;
+  margin-left: 360px;
+}
+
+.notes-list h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.note-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align content to top and bottom */
+  height: 200px; /* Adjust as needed */
+  width: 300px; /* Adjust as needed */
+}
+
+.note-card h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.note-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
