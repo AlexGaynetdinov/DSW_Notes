@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
 import '../styles/Sidebar.css';
 
-const Sidebar = ({ onSelectCollection }) => { // Destructure onSelectCollection from props
+const Sidebar = ({ onSelectCollection, onCreateCollection }) => {
   const { user, collections, logout, fetchCollectionNotes } = useAuth();
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -13,6 +13,10 @@ const Sidebar = ({ onSelectCollection }) => { // Destructure onSelectCollection 
   const handleLogout = () => {
     logout();
   };
+
+  const handleCreateCollection = () => {
+    onCreateCollection();
+  }
 
   const handleCollectionClick = (collectionId) => {
     fetchCollectionNotes(collectionId);
@@ -50,6 +54,9 @@ const Sidebar = ({ onSelectCollection }) => { // Destructure onSelectCollection 
             </li>
           ))}
         </ul>
+      </div>
+      <div className="create-collection-button" onClick={handleCreateCollection}>
+        <button>New Collection</button>
       </div>
     </div>
   );

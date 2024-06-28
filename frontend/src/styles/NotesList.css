@@ -11,7 +11,9 @@
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 40px;
+  /* Button */
+  grid-auto-rows: minmax(200px, auto);
 }
 
 .note-card {
@@ -38,4 +40,36 @@
   margin-bottom: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.create-note-button button {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.delete-collection-button {
+  position: fixed; /* Position the element relative to the browser window */
+  bottom: 20px; /* Position the element at the bottom of the window */
+  right: 20px; /* Position the element at the left of the window */
+}
+
+.delete-collecion-button button {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }

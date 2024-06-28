@@ -49,9 +49,54 @@ export const updateCollectionName = async (collectionId, newName) => {
   }
 };
 
+export const createCollection = async (name) => {
+  try {
+    const response = await api.post('/collections', { name });
+    return response.data;
+  } catch (error) {
+    console.error('Error creating collection:', error);
+    throw error; // Propagate error for handling in component
+  }
+};
+
+export const deleteCollection = async (collectionId) => {
+  const response = await api.delete(`/collections/${collectionId}`);
+  return response.data;
+}
+
 export const updateNote = async (noteId, updatedNote) => {
   const response = await api.put(`/notes/${noteId}`, updatedNote);
   return response.data;
+};
+
+export const createNote = async (title, content) => {
+  try {
+    const response = await api.post('/notes', {
+      title,
+      content,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error creating note:', error);
+    throw error; // Propagate error for handling in component
+  }
+};
+
+export const deleteNote = async (noteId) => {
+  const response = await api.delete(`/notes/${noteId}`);
+  return response.data;
+};
+
+export const addNoteToCollection = async (collectionId, noteId) => {
+  try {
+    const response = await api.post(`/collections/${collectionId}/notes`, {
+      noteId,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error adding note to collection:', error);
+    throw error; // Propagate error for handling in component
+  }
 };
 
 export default api;

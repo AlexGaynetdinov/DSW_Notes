@@ -1,7 +1,20 @@
 import React from 'react';
 import '../styles/NotesList.css';
 
-const NotesList = ({ collection, notes, editingName, newName, onNameChange, onNameEditStart, onNameEditEnd, onKeyDown, onNoteSelect }) => {
+const NotesList = ({
+  collection,
+  notes,
+  editingName,
+  newName,
+  onNameChange,
+  onNameEditStart,
+  onNameEditEnd,
+  onKeyDown,
+  onNoteSelect,
+  onCreateNote,
+  onDeleteCollection,
+}) => {
+
   return (
     <div className="notes-list">
       {editingName ? (
@@ -26,6 +39,12 @@ const NotesList = ({ collection, notes, editingName, newName, onNameChange, onNa
             <p>{note.content}...</p>
           </div>
         ))}
+      </div>
+      <div className="create-note-button">
+        <button onClick={onCreateNote}>Create New Note</button>
+      </div>
+      <div className="delete-collection-button">
+        <button onClick={onDeleteCollection}>Del</button>
       </div>
     </div>
   );
